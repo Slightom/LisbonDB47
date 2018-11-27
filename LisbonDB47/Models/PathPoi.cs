@@ -10,6 +10,7 @@ namespace LisbonDB47.Models
         public int PathPoiID { get; set; }
         public int PoiID { get; set; }
         public int PathID { get; set; }
+        public DateTime DateCreated { get; set; }
 
         public Poi Poi { get; set; }
         public Path Path { get; set; }

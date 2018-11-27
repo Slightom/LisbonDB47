@@ -11,6 +11,7 @@ namespace LisbonDB47.Models
         public bool Private { get; set; }
         public int PoiID { get; set; }
         public int UserID { get; set; }
+        public DateTime DateCreated { get; set; }
 
 
         public Poi Poi { get; set; }

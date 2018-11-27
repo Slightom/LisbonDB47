@@ -10,8 +10,9 @@ namespace LisbonDB47.Models
         public int PoiID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public double latitude { get; set; }
-        public double longitude { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public DateTime DateCreated { get; set; }
 
         public ICollection<UserPoi> UserPois { get; set; }
         public ICollection<PathPoi> PathPois { get; set; }

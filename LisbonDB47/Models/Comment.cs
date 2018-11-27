@@ -10,6 +10,7 @@ namespace LisbonDB47.Models
         public int CommentID { get; set; }
         public string Content { get; set; }
         public DateTime DateCreated { get; set; }
+        public DateTime? DateEdited { get; set; }
         public int PoiID { get; set; }
         public int UserID { get; set; }
 

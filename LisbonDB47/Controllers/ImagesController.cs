@@ -50,7 +50,6 @@ namespace LisbonDB47.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutImage([FromRoute] int id, [FromBody] Image image)
         {
-            image.DateCreated = DateTime.Now;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -86,7 +85,6 @@ namespace LisbonDB47.Controllers
         [HttpPost]
         public async Task<IActionResult> PostImage([FromBody] Image image)
         {
-            image.DateCreated = DateTime.Now;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

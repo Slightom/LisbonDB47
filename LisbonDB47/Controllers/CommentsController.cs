@@ -50,7 +50,6 @@ namespace LisbonDB47.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutComment([FromRoute] int id, [FromBody] Comment comment)
         {
-            comment.DateCreated = DateTime.Now;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -86,7 +85,6 @@ namespace LisbonDB47.Controllers
         [HttpPost]
         public async Task<IActionResult> PostComment([FromBody] Comment comment)
         {
-            comment.DateCreated = DateTime.Now;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

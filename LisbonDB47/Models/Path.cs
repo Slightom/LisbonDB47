@@ -10,6 +10,8 @@ namespace LisbonDB47.Models
         public int PathID { get; set; }
         public string Title { get; set; }
         public DateTime DateCreated { get; set; }
+        public DateTime? DateEdited { get; set; }
+
         public int UserID { get; set; }
 
         public User User { get; set; }

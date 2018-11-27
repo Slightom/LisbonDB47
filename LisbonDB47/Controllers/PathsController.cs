@@ -50,7 +50,6 @@ namespace LisbonDB47.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPath([FromRoute] int id, [FromBody] Path path)
         {
-            path.DateCreated = DateTime.Now; 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -86,7 +85,6 @@ namespace LisbonDB47.Controllers
         [HttpPost]
         public async Task<IActionResult> PostPath([FromBody] Path path)
         {
-            path.DateCreated = DateTime.Now;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
