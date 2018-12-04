@@ -29,7 +29,7 @@ namespace LisbonDB47
         {
             //var connection = @"Server=(localdb)\mssqllocaldb;Database=LisbonDB47;Trusted_Connection=True;ConnectRetryCount=0";
             // services.AddDbContext<LisbonDbContext>(options => options.UseSqlServer(connection));
-            var connection = "User ID=slightom;Password=carpediem1020;Host=localhost;Port=5432;Database=lisbonDB47;Pooling=true;";
+            var connection = "User ID=slightom;Password=carpediem1020;Host=localhost;Port=5432;Database=lisbondb47;Pooling=true;";
             services.AddDbContext<LisbonDbContext>(options => options.UseNpgsql(connection));
             
 
