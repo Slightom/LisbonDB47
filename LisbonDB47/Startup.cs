@@ -27,8 +27,11 @@ namespace LisbonDB47
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=LisbonDB47;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<LisbonDbContext>(options => options.UseSqlServer(connection));
+            //var connection = @"Server=(localdb)\mssqllocaldb;Database=LisbonDB47;Trusted_Connection=True;ConnectRetryCount=0";
+            // services.AddDbContext<LisbonDbContext>(options => options.UseSqlServer(connection));
+            var connection = "User ID=slightom;Password=carpediem1020;Host=localhost;Port=5432;Database=lisbonDB47;Pooling=true;";
+            services.AddDbContext<LisbonDbContext>(options => options.UseNpgsql(connection));
+            
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
