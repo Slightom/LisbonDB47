@@ -24,10 +24,11 @@ namespace LisbonDB47.Controllers
         [HttpGet]
         public IEnumerable<User> GetUsers()
         {
-            if (_context.Users.Count() < 3)
+            if (_context.Users.Count() == 3)
             {
+                int x = _context.Users.Count();
                 User u = new User();
-                //u.UserID = _context.Users.Count() + 1;
+                u.UserID = _context.Users.Count() + 1;
                 u.Name = "userTest";
                 u.Mail = "testmail@gmail.com";
                 u.Password = "testpass10p+";
