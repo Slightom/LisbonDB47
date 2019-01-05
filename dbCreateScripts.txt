@@ -1,5 +1,7 @@
 CREATE USER slightom WITH PASSWORD 'carpediem1020';
 
+ALTER ROLE slightom WITH Superuser;
+
 CREATE DATABASE lisbondb47;
 
 GRANT ALL PRIVILEGES ON DATABASE lisbondb47 to slightom;
