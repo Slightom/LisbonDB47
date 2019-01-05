@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace LisbonDB47
 {
@@ -41,6 +43,15 @@ namespace LisbonDB47
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            //services.AddSwaggerGen(options =>
+            //{
+            //    var basePath = AppContext.BaseDirectory;
+            //    var assemblyName = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+            //    var fileName = System.IO.Path.GetFileName(assemblyName + ".xml");
+            //    //Set the comments path for the swagger json and ui.
+            //    options.IncludeXmlComments(System.IO.Path.Combine(basePath, fileName));
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +61,7 @@ namespace LisbonDB47
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
+
 
             if (env.IsDevelopment())
             {
@@ -64,6 +76,9 @@ namespace LisbonDB47
             app.UseMvc();
 
             DbInitializer.SeedData(context);
+
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My simple API"); });
         }
     }
 }

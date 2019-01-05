@@ -1,0 +1,19 @@
+version: '3'
+ 
+services:
+    lisbondb47:
+        image: lisbondb47
+        build:
+             context: ./LisbonDB47
+             dockerfile: Dockerfile
+        environment:
+            DB_CONNECTION_STRING: "host=postgres_image;port=5432;database=lisbondb47;username=slightom;password=carpediem1020"
+
+postgres_image:
+    image: postgres:alpine
+    ports:
+        - "5432:5432"
+    environment:
+        POSTGRES_USER: "slightom"
+        POSTGRES_PASSWORD: "carpediem1020"
+        POSTGRES_DB: "lisbondb47"
