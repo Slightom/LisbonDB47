@@ -24,7 +24,14 @@ namespace LisbonDB47.Controllers
         [HttpGet]
         public IEnumerable<Poi> GetPois()
         {
-            return _context.Pois;
+            return _context.Pois.Include(p => p.UserPois).ThenInclude(up => up.Images).ToList();
+        }
+
+        // GET: api/Pois/public
+        [HttpGet("public")]
+        public IEnumerable<Poi> GetPublicPois()
+        {
+            return _context.Pois.Include(p => p.UserPois).ThenInclude(up => up.Images).Where(p => p.UserPois.Any(up => up.Private == false)).ToList();
         }
 
         // GET: api/Pois/5

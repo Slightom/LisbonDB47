@@ -24,22 +24,22 @@ namespace LisbonDB47.Controllers
         [HttpGet]
         public IEnumerable<User> GetUsers()
         {
-            if (_context.Users.Count() < 3)
-            {
-                var u1 = _context.Users.Where(x => x.Name == "userFromController").FirstOrDefault();
-                if(u1 is null)
-                {
-                    int x = _context.Users.Count();
-                    User u = new User();
-                    u.UserID = _context.Users.Count() + 1;
-                    u.Name = "userFromController";
-                    u.Mail = "testFromControllermail@gmail.com";
-                    u.Password = "testFromControllerpass10p+";
-                    _context.Users.Add(u);
-                    _context.SaveChanges();
-                }
+            //if (_context.Users.Count() < 3)
+            //{
+            //    var u1 = _context.Users.Where(x => x.Name == "userFromController").FirstOrDefault();
+            //    if(u1 is null)
+            //    {
+            //        int x = _context.Users.Count();
+            //        User u = new User();
+            //        u.UserID = _context.Users.Count() + 1;
+            //        u.Name = "userFromController";
+            //        u.Mail = "testFromControllermail@gmail.com";
+            //        u.Password = "testFromControllerpass10p+";
+            //        _context.Users.Add(u);
+            //        _context.SaveChanges();
+            //    }
                
-            }
+            //}
             return _context.Users;
         }
 

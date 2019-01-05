@@ -24,26 +24,45 @@ namespace LisbonDB47.Controllers
         [HttpGet]
         public IEnumerable<UserPoi> GetUserPois()
         {
-            return _context.UserPois;
+            return _context.UserPois.Include(up => up.Images).ToList();
         }
 
         // GET: api/UserPois/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserPoi([FromRoute] int id)
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> GetUserPoi([FromRoute] int id)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    var userPoi = await _context.UserPois.FindAsync(id);
+
+        //    if (userPoi == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(userPoi);
+        //}
+
+        // GET: api/UserPois/5
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserPoisByUserId([FromRoute] int userId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var userPoi = await _context.UserPois.FindAsync(id);
+            var userPois = await _context.UserPois.Where(up => up.UserID == userId).Include(up => up.Images).ToListAsync();
 
-            if (userPoi == null)
+            if (userPois == null)
             {
                 return NotFound();
             }
 
-            return Ok(userPoi);
+            return Ok(userPois);
         }
 
         // PUT: api/UserPois/5
