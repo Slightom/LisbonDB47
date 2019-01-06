@@ -23,8 +23,15 @@ namespace LisbonDB47
                 admin.Active = true;
                 _context.Users.Add(admin);
                 _context.SaveChanges();
+                var adminID = admin.UserID;
 
-                var adminID =  admin.UserID;
+                admin = new User();
+                admin.Name = "User 2";
+                admin.Mail = "user.2@gmail.com";
+                admin.Password = "user2";
+                admin.Active = true;
+                _context.Users.Add(admin);
+                _context.SaveChanges();
 
                 if (_context.Pois.Count() == 0)
                 {
@@ -71,11 +78,13 @@ namespace LisbonDB47
 
                     foreach (Poi p in _context.Pois)
                     {
-                        UserPoi userPoi = new UserPoi();
-                        userPoi.Private = false;
-                        userPoi.PoiID = p.PoiID;
-                        userPoi.UserID = adminID;
-                        userPoi.DateCreated = DateTime.Now;
+                        UserPoi userPoi = new UserPoi
+                        {
+                            Private = true,
+                            PoiID = p.PoiID,
+                            UserID = adminID,
+                            DateCreated = DateTime.Now
+                        };
                         _context.UserPois.Add(userPoi);
                     }
                     _context.SaveChanges();
@@ -119,6 +128,26 @@ namespace LisbonDB47
                         DateCreated = DateTime.Now
                     };
                     _context.Images.Add(image);
+                    _context.SaveChanges();
+
+                    Comment c = new Comment
+                    {
+                        Content = "Test 1",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = 1,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+                    c = new Comment
+                    {
+                        Content = "Test 2",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = 1,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
                     _context.SaveChanges();
                 }
             }
