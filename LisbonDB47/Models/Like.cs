@@ -9,10 +9,10 @@ namespace LisbonDB47.Models
     {
         public int LikeID { get; set; }
         public DateTime DateCreated { get; set; }
-        public int PoiID { get; set; }
+        public int UserPoiID { get; set; }
         public int UserID { get; set; }
 
-        public Poi Poi { get; set; }
+        public UserPoi UserPoi { get; set; }
         public User User { get; set; }
     }
 }

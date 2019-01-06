@@ -17,7 +17,7 @@ namespace LisbonDB47.Models
         public ICollection<UserPoi> UserPois { get; set; }
         public ICollection<PathPoi> PathPois { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
-        public ICollection<Like> Likes { get; set; }
+        //public ICollection<Comment> Comments { get; set; }
+        //public ICollection<Like> Likes { get; set; }
     }
 }

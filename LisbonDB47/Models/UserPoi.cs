@@ -16,6 +16,9 @@ namespace LisbonDB47.Models
 
         public Poi Poi { get; set; }
         public User User { get; set; }
+
         public ICollection<Image> Images { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Like> Likes { get; set; }
     }
 }

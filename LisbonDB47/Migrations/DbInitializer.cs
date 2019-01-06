@@ -135,7 +135,7 @@ namespace LisbonDB47
                         Content = "Test 1",
                         DateCreated = DateTime.Now,
                         DateEdited = DateTime.Now,
-                        PoiID = 1,
+                        UserPoiID = 1,
                         UserID = 1
                     };
                     _context.Comments.Add(c);
@@ -144,7 +144,7 @@ namespace LisbonDB47
                         Content = "Test 2",
                         DateCreated = DateTime.Now,
                         DateEdited = DateTime.Now,
-                        PoiID = 1,
+                        UserPoiID = 1,
                         UserID = 2
                     };
                     _context.Comments.Add(c);
