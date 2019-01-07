@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LisbonDB47.Helpers;
 using LisbonDB47.Models;
 
 namespace LisbonDB47
@@ -19,7 +20,7 @@ namespace LisbonDB47
                 User admin = new User();
                 admin.Name = "Admin Tomek";
                 admin.Mail = "admin.tomek@gmail.com";
-                admin.Password = "admintomek";
+                admin.Password = SecurePasswordHasher.Hash("admintomek");
                 admin.Active = true;
                 _context.Users.Add(admin);
                 _context.SaveChanges();
@@ -28,7 +29,7 @@ namespace LisbonDB47
                 admin = new User();
                 admin.Name = "User 2";
                 admin.Mail = "user.2@gmail.com";
-                admin.Password = "user2";
+                admin.Password = SecurePasswordHasher.Hash("user2");
                 admin.Active = true;
                 _context.Users.Add(admin);
                 _context.SaveChanges();
