@@ -62,6 +62,35 @@ namespace LisbonDB47.Controllers
             return Ok(user);
         }
 
+        // GET: api/Users/getUsedMails
+        [HttpGet("getUsedMails")]
+        public async Task<IActionResult> GetUsedMails()
+        {
+            var mails = await _context.Users.Select(u => u.Mail).ToListAsync();
+
+            if (mails == null)
+            {
+                return NotFound();
+            }
+            return Ok(mails);
+        }
+
+        // GET: api/Users/checkMail/aa@aa.pl
+        [HttpGet("checkMail/{mail}")]
+        public async Task<IActionResult> CheckEmail([FromRoute] string mail)
+        {
+            var users = await _context.Users.Where(u => u.Mail == mail).ToListAsync();
+
+            if (users.Count == 0 || users == null)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Conflict();
+            }
+        }
+
         // PUT: api/Users/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
