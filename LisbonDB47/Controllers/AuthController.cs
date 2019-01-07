@@ -22,7 +22,7 @@ namespace LisbonDB47.Controllers
         }
         // POST api/values
         [HttpPost]
-        public ActionResult Login(User user)
+        public ActionResult Login([FromBody] User user)
         {
             Console.WriteLine("--------------------- " + user.Mail);
             Console.WriteLine("--------------------- " + user.Password);
