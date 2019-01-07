@@ -27,6 +27,26 @@ namespace LisbonDB47.Controllers
             return _context.UserPois.Include(up => up.Images).ToList();
         }
 
+        // GET: api/UserPois/public
+        [HttpGet("public")]
+        public async Task<IActionResult> GetPublicUserPois()
+        {
+            var publicUsersPois = await _context.UserPois.Where(up => up.Private == false)
+                                                   .Include(up => up.Poi)
+                                                   .Include(up => up.Images)
+                                                   .Include(up => up.User).ToListAsync();
+
+            foreach(UserPoi up in publicUsersPois)
+            {
+                up.User.UserPois = null;
+            }
+            if (publicUsersPois == null)
+            {
+                return NotFound();
+            }
+            return Ok(publicUsersPois);
+        }
+
         // GET: api/UserPois/5
         //[HttpGet("{id}")]
         //public async Task<IActionResult> GetUserPoi([FromRoute] int id)
