@@ -27,24 +27,79 @@ namespace LisbonDB47.Controllers
             return _context.Comments;
         }
 
-        // GET: api/Comments/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetComment([FromRoute] int id)
+        // GET: api/Comments/forUser/5
+        [HttpGet("forUser/{userId}")]
+        public async Task<IActionResult> GetCommentsForUser([FromRoute] int userId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var comment = await _context.Comments.FindAsync(id);
+            var userPois = await _context.UserPois.Where(up => up.UserID == userId).ToListAsync();
 
-            if (comment == null)
+            List<Comment> userComments = new List<Comment>();
+
+            foreach(UserPoi up in userPois)
+            {
+                var poiComments = _context.Comments.Where(c => c.UserPoiID == up.UserPoiID)
+                                                .Include(l => l.User)
+                                                .Include(l => l.UserPoi)
+                                                .ThenInclude(l => l.Poi)
+                                                .Include(l => l.UserPoi)
+                                                .ThenInclude(l => l.Images);
+                foreach (Comment c in poiComments)
+                {   
+                    c.User.UserPois = null;
+                    userComments.Add(c);
+                }
+            }
+
+            if (userComments == null)
             {
                 return NotFound();
             }
 
-            return Ok(comment);
+            return Ok(userComments);
         }
+
+        // GET: api/Comments/forUserPoi/5
+        [HttpGet("forUserPoi/{userPoiId}")]
+        public async Task<IActionResult> GetCommentsForUserPoi([FromRoute] int userPoiId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var comments = await _context.Comments.Where(c => c.UserPoiID == userPoiId).Include(c => c.User).ToListAsync();
+
+            if (comments == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(comments);
+        }
+
+        //// GET: api/Comments/5
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> GetComment([FromRoute] int id)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    var comment = await _context.Comments.FindAsync(id);
+
+        //    if (comment == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(comment);
+        //}
 
         // PUT: api/Comments/5
         [HttpPut("{id}")]

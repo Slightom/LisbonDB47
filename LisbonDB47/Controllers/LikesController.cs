@@ -46,6 +46,64 @@ namespace LisbonDB47.Controllers
             return Ok(like);
         }
 
+        [HttpGet("forUser/{userId}")]
+        public async Task<IActionResult> GetLikesForUser([FromRoute] int userId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            //var userPois = await _context.UserPois.Include(up => up.Likes).ThenInclude(l => l.User).Where(up => up.UserID == userId).ToListAsync();
+            var userPois = await _context.UserPois.Where(up => up.UserID == userId).ToListAsync();
+            var userLikes = new List<Like>();
+            userPois.ForEach(up => 
+            {
+                var likes = _context.Likes.Where(l => l.UserPoiID == up.UserPoiID)
+                                .Include(l => l.User)
+                                .Include(l => l.UserPoi)
+                                .ThenInclude(l => l.Poi)
+                                .Include(l => l.UserPoi)
+                                .ThenInclude(l => l.Images);
+
+                foreach (Like l in likes)
+                {
+
+                    l.User.UserPois = null;
+                    userLikes.Add(l);
+                }
+
+            });
+
+
+
+            if (userLikes == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(userLikes);
+        }
+
+        // GET: api/Likes/forUserPoi/5
+        [HttpGet("forUserPoi/{userPoiId}")]
+        public async Task<IActionResult> GetLikesForUserPoi([FromRoute] int userPoiId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var likes = await _context.Likes.Where(c => c.UserPoiID == userPoiId).Include(c => c.User).ToListAsync();
+
+            if (likes == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(likes);
+        }
+
         // PUT: api/Likes/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutLike([FromRoute] int id, [FromBody] Like like)

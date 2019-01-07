@@ -46,6 +46,43 @@ namespace LisbonDB47.Controllers
             return Ok(image);
         }
 
+        [HttpGet("firstForUserPoiId/{userPoiId}")]
+        public async Task<IActionResult> GetFristImageForUserPoiId([FromRoute] int userPoiId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var image = await _context.Images.Where(i => i.UserPoiID == userPoiId).FirstAsync();
+
+            if (image == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(image);
+        }
+
+        // GET: api/Images/forUserPoi/5
+        [HttpGet("forUserPoi/{userPoiId}")]
+        public async Task<IActionResult> GetImagesForUserPoi([FromRoute] int userPoiId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var images = await _context.Images.Where(i => i.UserPoiID == userPoiId).ToListAsync();
+
+            if (images == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(images);
+        }
+
         // PUT: api/Images/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutImage([FromRoute] int id, [FromBody] Image image)
