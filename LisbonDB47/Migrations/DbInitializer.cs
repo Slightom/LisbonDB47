@@ -139,6 +139,7 @@ namespace LisbonDB47
                         UserID = 1
                     };
                     _context.Comments.Add(c);
+
                     c = new Comment
                     {
                         Content = "Test 2",
@@ -148,6 +149,23 @@ namespace LisbonDB47
                         UserID = 2
                     };
                     _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    Like l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        UserPoiID = 1,
+                        UserID = 1
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        UserPoiID = 1,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
                     _context.SaveChanges();
                 }
             }
