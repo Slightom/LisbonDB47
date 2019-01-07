@@ -74,13 +74,23 @@ namespace LisbonDB47
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi);
-                    _context.SaveChanges();
+
+                    poi = new Poi
+                    {
+                        Title = "Cascais",
+                        Description = "Cascais is a coastal resort town in Portugal, just west of Lisbon. It’s known for its sandy beaches and busy marina. The old town is home to the medieval Nossa Senhora da Luz Fort and the Citadel Palace, a former royal retreat. Nearby is the whitewashed Nossa Senhora da Assunção church, with glazed azulejo tiles. Paula Rego House of Stories shows the Portuguese artist’s paintings in a modern building.",
+                        Latitude = 38.697060,
+                        Longitude = -9.422222,
+                        DateCreated = DateTime.Now
+                    };
+                    _context.Pois.Add(poi);
+                    _context.SaveChanges(); ;
 
                     foreach (Poi p in _context.Pois)
                     {
                         UserPoi userPoi = new UserPoi
                         {
-                            Private = true,
+                            Private = false,
                             PoiID = p.PoiID,
                             UserID = adminID,
                             DateCreated = DateTime.Now
@@ -90,7 +100,7 @@ namespace LisbonDB47
                     _context.SaveChanges();
 
                     int poiID = _context.Pois.Count();
-                    poiID = poiID > 4 ? poiID -= 4 : 1;
+                    poiID = poiID > 5 ? poiID -= 5 : 1;
 
 
                     Image image = new Image
