@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LisbonDB47.Models;
+using LisbonDB47.Helpers;
 
 namespace LisbonDB47.Controllers
 {
@@ -130,6 +131,7 @@ namespace LisbonDB47.Controllers
         [HttpPost]
         public async Task<IActionResult> PostUser([FromBody] User user)
         {
+            user.Password = SecurePasswordHasher.Hash(user.Password);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
