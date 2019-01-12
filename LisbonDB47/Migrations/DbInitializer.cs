@@ -126,6 +126,15 @@ namespace LisbonDB47
                     {
                         Title = "My 3",
                         Url = "https://www.bem-vindo-a-lisboa.com.br/wp-content/uploads/2017/07/tour-lisboa-belem-ponte-25-de-abril-e-cristo-rei-o-que-esperar-lisboa.jpg",
+                        UserPoiID = poiID,
+                        DateCreated = DateTime.Now
+                    };
+                    _context.Images.Add(image);
+              
+                    image = new Image
+                    {
+                        Title = "My Abril",
+                        Url = "https://upload.wikimedia.org/wikipedia/commons/f/fc/25th_April_Bridge_and_boat.JPG",
                         UserPoiID = poiID++,
                         DateCreated = DateTime.Now
                     };
@@ -136,6 +145,15 @@ namespace LisbonDB47
                         Title = "My 4",
                         Url = "http://www.patrimoniocultural.gov.pt/static/data/cache/f8/72/f872e73eef92ad2d755293b95634a4a6.jpg",
                         UserPoiID = poiID++,
+                        DateCreated = DateTime.Now
+                    };
+                    _context.Images.Add(image);
+
+                    image = new Image
+                    {
+                        Title = "My 5 Cascais",
+                        Url = "http://nomanbefore.com/wp-content/uploads/2016/09/Cascais-9-e1497997239735.jpg",
+                        UserPoiID = poiID,
                         DateCreated = DateTime.Now
                     };
                     _context.Images.Add(image);
