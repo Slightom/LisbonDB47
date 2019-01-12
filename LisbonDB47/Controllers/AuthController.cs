@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using LisbonDB47.Helpers;
 using LisbonDB47.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -27,17 +25,25 @@ namespace LisbonDB47.Controllers
             Console.WriteLine("--------------------- " + user.Mail);
             Console.WriteLine("--------------------- " + user.Password);
 
-            var foundedUser = _context.Users.Where(u => u.Mail == user.Mail).First();
+            User foundedUser = null;
+            try
+            {
+                foundedUser = _context.Users.Where(u => u.Mail == user.Mail).First();
+            }
+            catch (Exception)
+            {
+
+            }
             bool ok = false;
 
-            if(user != null)
+            if (foundedUser != null)
             {
                 ok = SecurePasswordHasher.Verify(user.Password, foundedUser.Password);
                 foundedUser.Password = null;
                 // if user is not active also set to false
             }
 
-            if(ok)
+            if (ok)
             {
                 return Ok(foundedUser);
             }
