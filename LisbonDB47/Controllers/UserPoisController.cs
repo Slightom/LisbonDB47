@@ -47,27 +47,33 @@ namespace LisbonDB47.Controllers
             return Ok(publicUsersPois);
         }
 
-        // GET: api/UserPois/5
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetUserPoi([FromRoute] int id)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+         //GET: api/UserPois/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserPoi([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var userPoi = await _context.UserPois.FindAsync(id);
+            var userPoi = await _context.UserPois
+                                    .Where(up => up.UserPoiID == id)
+                                    .Include(up => up.Poi)
+                                    .Include(up => up.Images)
+                                    .Include(up => up.Comments).ThenInclude(c => c.User)
+                                    .Include(up => up.Likes).ThenInclude(l => l.User)
+                                    .FirstAsync();
 
-        //    if (userPoi == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (userPoi == null)
+            {
+                return NotFound();
+            }
 
-        //    return Ok(userPoi);
-        //}
+            return Ok(userPoi);
+        }
 
-        // GET: api/UserPois/5
-        [HttpGet("{userId}")]
+        // GET: api/UserPois/forUser/5
+        [HttpGet("forUser/{userId}")]
         public async Task<IActionResult> GetUserPoisByUserId([FromRoute] int userId)
         {
             if (!ModelState.IsValid)
@@ -75,7 +81,10 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
-            var userPois = await _context.UserPois.Where(up => up.UserID == userId).Include(up => up.Images).ToListAsync();
+            var userPois = await _context.UserPois
+                                    .Where(up => up.UserID == userId)
+                                    .Include(up => up.Images)
+                                    .ToListAsync();
 
             if (userPois == null)
             {
