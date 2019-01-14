@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using LisbonDB47.Helpers;
 using LisbonDB47.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ namespace LisbonDB47.Controllers
         {
             _context = context;
         }
-        // POST api/values
+        // POST api/auth
         [HttpPost]
         public ActionResult Login([FromBody] User user)
         {
@@ -53,10 +54,24 @@ namespace LisbonDB47.Controllers
             }
         }
 
-        // PUT api/values/5
-        [HttpPost("register")]
-        public void Put(int id, [FromBody]string value)
+        // POST api/auth/check
+        [HttpPost("check")]
+        public async Task<IActionResult> CheckUser([FromBody] User user)
         {
+            if (user == null || user.UserID == 0 || user.Mail == null || user.Mail == "")
+            {
+                return NotFound();
+            }
+
+            User foundedUser = await _context.Users.FindAsync(user.UserID);
+            if (foundedUser != null && foundedUser.Mail == user.Mail)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }
