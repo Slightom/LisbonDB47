@@ -82,24 +82,24 @@ namespace LisbonDB47.Controllers
             return Ok(comments);
         }
 
-        //// GET: api/Comments/5
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetComment([FromRoute] int id)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        // GET: api/Comments/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetComment([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var comment = await _context.Comments.FindAsync(id);
+            var comment = await _context.Comments.FindAsync(id);
 
-        //    if (comment == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (comment == null)
+            {
+                return NotFound();
+            }
 
-        //    return Ok(comment);
-        //}
+            return Ok(comment);
+        }
 
         // PUT: api/Comments/5
         [HttpPut("{id}")]
@@ -147,6 +147,7 @@ namespace LisbonDB47.Controllers
 
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();
+            comment = await _context.Comments.Include(c => c.User).Where(c => c.CommentID == comment.CommentID).FirstAsync();
 
             return CreatedAtAction("GetComment", new { id = comment.CommentID }, comment);
         }
