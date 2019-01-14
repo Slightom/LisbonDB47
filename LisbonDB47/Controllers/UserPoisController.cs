@@ -60,6 +60,7 @@ namespace LisbonDB47.Controllers
                                     .Where(up => up.UserPoiID == id)
                                     .Include(up => up.Poi)
                                     .Include(up => up.Images)
+                                    .Include(up => up.User)
                                     .Include(up => up.Comments).ThenInclude(c => c.User)
                                     .Include(up => up.Likes).ThenInclude(l => l.User)
                                     .FirstAsync();
