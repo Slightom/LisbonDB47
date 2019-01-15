@@ -161,7 +161,7 @@ namespace LisbonDB47
 
                     Comment c = new Comment
                     {
-                        Content = "Test 1",
+                        Content = "I love this place !!",
                         DateCreated = DateTime.Now,
                         DateEdited = DateTime.Now,
                         UserPoiID = 1,
@@ -171,7 +171,7 @@ namespace LisbonDB47
 
                     c = new Comment
                     {
-                        Content = "Test 2",
+                        Content = "Omg, my favorite, greets<3",
                         DateCreated = DateTime.Now,
                         DateEdited = DateTime.Now,
                         UserPoiID = 1,
