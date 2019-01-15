@@ -1,0 +1,8 @@
+DROP TABLE "public"."Comments";
+DROP TABLE "public"."Images";
+DROP TABLE "public"."Likes";
+DROP TABLE "public"."PathPois";
+DROP TABLE "public"."Paths";
+DROP TABLE "public"."Pois";
+DROP TABLE "public"."Users";
+DROP TABLE "public"."__EFMigrationsHistory";

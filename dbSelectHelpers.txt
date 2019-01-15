@@ -1,0 +1,7 @@
+SELECT * FROM "public"."Users";
+SELECT * FROM "public"."Pois";
+SELECT * FROM "public"."Images";
+SELECT * FROM "public"."Likes";
+SELECT * FROM "public"."Comments";
+SELECT * FROM "public"."PathPois";
+SELECT * FROM "public"."Paths";
