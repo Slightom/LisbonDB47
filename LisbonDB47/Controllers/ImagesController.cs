@@ -46,15 +46,15 @@ namespace LisbonDB47.Controllers
             return Ok(image);
         }
 
-        [HttpGet("firstForUserPoiId/{userPoiId}")]
-        public async Task<IActionResult> GetFristImageForUserPoiId([FromRoute] int userPoiId)
+        [HttpGet("firstForPoiId/{poiId}")]
+        public async Task<IActionResult> GetFristImageForUserPoiId([FromRoute] int poiId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var image = await _context.Images.Where(i => i.UserPoiID == userPoiId).FirstAsync();
+            var image = await _context.Images.Where(i => i.PoiID == poiId).FirstAsync();
 
             if (image == null)
             {
@@ -65,15 +65,15 @@ namespace LisbonDB47.Controllers
         }
 
         // GET: api/Images/forUserPoi/5
-        [HttpGet("forUserPoi/{userPoiId}")]
-        public async Task<IActionResult> GetImagesForUserPoi([FromRoute] int userPoiId)
+        [HttpGet("forPoi/{poiId}")]
+        public async Task<IActionResult> GetImagesForUserPoi([FromRoute] int poiId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var images = await _context.Images.Where(i => i.UserPoiID == userPoiId).ToListAsync();
+            var images = await _context.Images.Where(i => i.PoiID == poiId).ToListAsync();
 
             if (images == null)
             {
