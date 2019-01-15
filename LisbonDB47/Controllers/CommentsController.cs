@@ -36,43 +36,46 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
-            var userPois = await _context.UserPois.Where(up => up.UserID == userId).ToListAsync();
+            //TODO: fix after migrations
+            //var userPois = await _context.UserPois.Where(up => up.UserID == userId).ToListAsync();
 
-            List<Comment> userComments = new List<Comment>();
+            //List<Comment> userComments = new List<Comment>();
 
-            foreach(UserPoi up in userPois)
-            {
-                var poiComments = _context.Comments.Where(c => c.UserPoiID == up.UserPoiID)
-                                                .Include(l => l.User)
-                                                .Include(l => l.UserPoi)
-                                                .ThenInclude(l => l.Poi)
-                                                .Include(l => l.UserPoi)
-                                                .ThenInclude(l => l.Images);
-                foreach (Comment c in poiComments)
-                {   
-                    c.User.UserPois = null;
-                    userComments.Add(c);
-                }
-            }
+            //foreach(UserPoi up in userPois)
+            //{
 
-            if (userComments == null)
-            {
-                return NotFound();
-            }
+            //    //var poiComments = _context.Comments.Where(c => c.PoiID == up.UserPoiID)
+            //    //                                .Include(l => l.User)
+            //    //                                .Include(l => l.UserPoi)
+            //    //                                .ThenInclude(l => l.Poi)
+            //    //                                .Include(l => l.UserPoi)
+            //    //                                .ThenInclude(l => l.Images);
+            //    //foreach (Comment c in poiComments)
+            //    //{   
+            //    //    c.User.UserPois = null;
+            //    //    userComments.Add(c);
+            //    //}
+            //}
 
-            return Ok(userComments);
+            //if (userComments == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return Ok(userComments);
+            return NotFound();
         }
 
-        // GET: api/Comments/forUserPoi/5
-        [HttpGet("forUserPoi/{userPoiId}")]
-        public async Task<IActionResult> GetCommentsForUserPoi([FromRoute] int userPoiId)
+        // GET: api/Comments/forPoi/5
+        [HttpGet("forPoi/{poiId}")]
+        public async Task<IActionResult> GetCommentsForPoi([FromRoute] int poiId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var comments = await _context.Comments.Where(c => c.UserPoiID == userPoiId).Include(c => c.User).ToListAsync();
+            var comments = await _context.Comments.Where(c => c.PoiID == poiId).Include(c => c.User).ToListAsync();
 
             if (comments == null)
             {

@@ -14,7 +14,6 @@ namespace LisbonDB47.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<Poi> Pois { get; set; }
-        public DbSet<UserPoi> UserPois { get; set; }
         public DbSet<Path> Paths { get; set; }
         public DbSet<PathPoi> PathPois { get; set; }
 

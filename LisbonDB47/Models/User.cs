@@ -13,7 +13,7 @@ namespace LisbonDB47.Models
         public string Mail { get; set; }
         public bool Active { get; set; }
 
-        public ICollection<UserPoi> UserPois { get; set; }
+        public ICollection<Poi> Pois { get; set; }
         public ICollection<Path> Paths { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Like> Likes { get; set; }

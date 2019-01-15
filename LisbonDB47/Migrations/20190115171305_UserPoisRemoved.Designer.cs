@@ -3,15 +3,17 @@ using System;
 using LisbonDB47.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LisbonDB47.Migrations
 {
     [DbContext(typeof(LisbonDbContext))]
-    partial class LisbonDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190115171305_UserPoisRemoved")]
+    partial class UserPoisRemoved
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,11 +36,15 @@ namespace LisbonDB47.Migrations
 
                     b.Property<int>("UserID");
 
+                    b.Property<int?>("UserPoiID");
+
                     b.HasKey("CommentID");
 
                     b.HasIndex("PoiID");
 
                     b.HasIndex("UserID");
+
+                    b.HasIndex("UserPoiID");
 
                     b.ToTable("Comments");
                 });
@@ -64,6 +70,8 @@ namespace LisbonDB47.Migrations
 
                     b.HasIndex("PoiID");
 
+                    b.HasIndex("UserPoiID");
+
                     b.ToTable("Images");
                 });
 
@@ -78,11 +86,15 @@ namespace LisbonDB47.Migrations
 
                     b.Property<int>("UserID");
 
+                    b.Property<int?>("UserPoiID");
+
                     b.HasKey("LikeID");
 
                     b.HasIndex("PoiID");
 
                     b.HasIndex("UserID");
+
+                    b.HasIndex("UserPoiID");
 
                     b.ToTable("Likes");
                 });
@@ -171,6 +183,32 @@ namespace LisbonDB47.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("LisbonDB47.Models.UserPoi", b =>
+                {
+                    b.Property<int>("UserPoiID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("PoiID");
+
+                    b.Property<bool>("Private");
+
+                    b.Property<string>("Title");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("UserPoiID");
+
+                    b.HasIndex("PoiID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("UserPois");
+                });
+
             modelBuilder.Entity("LisbonDB47.Models.Comment", b =>
                 {
                     b.HasOne("LisbonDB47.Models.Poi", "Poi")
@@ -182,6 +220,10 @@ namespace LisbonDB47.Migrations
                         .WithMany("Comments")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LisbonDB47.Models.UserPoi")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserPoiID");
                 });
 
             modelBuilder.Entity("LisbonDB47.Models.Image", b =>
@@ -189,6 +231,11 @@ namespace LisbonDB47.Migrations
                     b.HasOne("LisbonDB47.Models.Poi", "Poi")
                         .WithMany("Images")
                         .HasForeignKey("PoiID");
+
+                    b.HasOne("LisbonDB47.Models.UserPoi")
+                        .WithMany("Images")
+                        .HasForeignKey("UserPoiID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("LisbonDB47.Models.Like", b =>
@@ -202,6 +249,10 @@ namespace LisbonDB47.Migrations
                         .WithMany("Likes")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LisbonDB47.Models.UserPoi")
+                        .WithMany("Likes")
+                        .HasForeignKey("UserPoiID");
                 });
 
             modelBuilder.Entity("LisbonDB47.Models.Path", b =>
@@ -229,6 +280,19 @@ namespace LisbonDB47.Migrations
                 {
                     b.HasOne("LisbonDB47.Models.User", "User")
                         .WithMany("Pois")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LisbonDB47.Models.UserPoi", b =>
+                {
+                    b.HasOne("LisbonDB47.Models.Poi", "Poi")
+                        .WithMany()
+                        .HasForeignKey("PoiID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LisbonDB47.Models.User", "User")
+                        .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

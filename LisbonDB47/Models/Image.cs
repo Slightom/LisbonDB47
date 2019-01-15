@@ -11,10 +11,10 @@ namespace LisbonDB47.Models
         public string Title { get; set; }
         public byte[] ImageData { get; set; }
         public string Url { get; set; }
-        public bool Private { get; set; }   //unused
+        //public bool Private { get; set; }   //unused
         public DateTime DateCreated { get; set; }
         public int UserPoiID { get; set; }
 
-        public UserPoi UserPoi { get; set; }
+        public Poi Poi { get; set; }
     }
 }

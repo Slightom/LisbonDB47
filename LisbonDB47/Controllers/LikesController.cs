@@ -54,47 +54,51 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
+            //TODO: fix after migration
             //var userPois = await _context.UserPois.Include(up => up.Likes).ThenInclude(l => l.User).Where(up => up.UserID == userId).ToListAsync();
-            var userPois = await _context.UserPois.Where(up => up.UserID == userId).ToListAsync();
-            var userLikes = new List<Like>();
-            userPois.ForEach(up => 
-            {
-                var likes = _context.Likes.Where(l => l.UserPoiID == up.UserPoiID)
-                                .Include(l => l.User)
-                                .Include(l => l.UserPoi)
-                                .ThenInclude(l => l.Poi)
-                                .Include(l => l.UserPoi)
-                                .ThenInclude(l => l.Images);
-
-                foreach (Like l in likes)
-                {
-
-                    l.User.UserPois = null;
-                    userLikes.Add(l);
-                }
-
-            });
+            //var userPois = await _context.UserPois.Where(up => up.UserID == userId).ToListAsync();
+            //var userLikes = new List<Like>();
 
 
+            //userPois.ForEach(up => 
+            //{
+            //    var likes = _context.Likes.Where(l => l.UserPoiID == up.UserPoiID)
+            //                    .Include(l => l.User)
+            //                    .Include(l => l.UserPoi)
+            //                    .ThenInclude(l => l.Poi)
+            //                    .Include(l => l.UserPoi)
+            //                    .ThenInclude(l => l.Images);
 
-            if (userLikes == null)
-            {
-                return NotFound();
-            }
+            //    foreach (Like l in likes)
+            //    {
 
-            return Ok(userLikes);
+            //        l.User.UserPois = null;
+            //        userLikes.Add(l);
+            //    }
+
+            //});
+
+
+
+            //if (userLikes == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return Ok(userLikes);
+            return NotFound();
         }
 
         // GET: api/Likes/forUserPoi/5
-        [HttpGet("forUserPoi/{userPoiId}")]
-        public async Task<IActionResult> GetLikesForUserPoi([FromRoute] int userPoiId)
+        [HttpGet("forPoi/{poiId}")]
+        public async Task<IActionResult> GetLikesForPoi([FromRoute] int poiId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var likes = await _context.Likes.Where(c => c.UserPoiID == userPoiId).Include(c => c.User).ToListAsync();
+            var likes = await _context.Likes.Where(c => c.PoiID == poiId).Include(c => c.User).ToListAsync();
 
             if (likes == null)
             {
