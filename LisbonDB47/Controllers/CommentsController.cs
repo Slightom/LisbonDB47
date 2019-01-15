@@ -36,34 +36,30 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
-            //TODO: fix after migrations
-            //var userPois = await _context.UserPois.Where(up => up.UserID == userId).ToListAsync();
+            //TODO: fixed after migration - not tested 1
+            var poisForUser = await _context.Pois.Where(p => p.UserID == userId).ToListAsync();
 
-            //List<Comment> userComments = new List<Comment>();
+            List<Comment> commentsForUser = new List<Comment>();
 
-            //foreach(UserPoi up in userPois)
-            //{
+            foreach(Poi p in poisForUser)
+            {
+                var poiComments = _context.Comments.Where(c => c.PoiID == p.PoiID)
+                                                    .Include(l => l.User)
+                                                    .Include(l => l.Poi)
+                                                    .ThenInclude(l => l.Images);
+                                                    
+                foreach (Comment c in poiComments)
+                {
+                    commentsForUser.Add(c);
+                }
+            }
 
-            //    //var poiComments = _context.Comments.Where(c => c.PoiID == up.UserPoiID)
-            //    //                                .Include(l => l.User)
-            //    //                                .Include(l => l.UserPoi)
-            //    //                                .ThenInclude(l => l.Poi)
-            //    //                                .Include(l => l.UserPoi)
-            //    //                                .ThenInclude(l => l.Images);
-            //    //foreach (Comment c in poiComments)
-            //    //{   
-            //    //    c.User.UserPois = null;
-            //    //    userComments.Add(c);
-            //    //}
-            //}
+            if (commentsForUser == null)
+            {
+                return NotFound();
+            }
 
-            //if (userComments == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return Ok(userComments);
-            return NotFound();
+            return Ok(commentsForUser);
         }
 
         // GET: api/Comments/forPoi/5

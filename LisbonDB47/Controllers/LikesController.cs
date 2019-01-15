@@ -54,39 +54,30 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
-            //TODO: fix after migration
-            //var userPois = await _context.UserPois.Include(up => up.Likes).ThenInclude(l => l.User).Where(up => up.UserID == userId).ToListAsync();
-            //var userPois = await _context.UserPois.Where(up => up.UserID == userId).ToListAsync();
-            //var userLikes = new List<Like>();
+            //TODO: fixed after migration - not tested 2
+            var poisForUser = await _context.Pois.Where(p => p.UserID == userId).ToListAsync();
 
+            List<Like> likesForUser = new List<Like>();
 
-            //userPois.ForEach(up => 
-            //{
-            //    var likes = _context.Likes.Where(l => l.UserPoiID == up.UserPoiID)
-            //                    .Include(l => l.User)
-            //                    .Include(l => l.UserPoi)
-            //                    .ThenInclude(l => l.Poi)
-            //                    .Include(l => l.UserPoi)
-            //                    .ThenInclude(l => l.Images);
+            foreach (Poi p in poisForUser)
+            {
+                var poiLikes = _context.Likes.Where(c => c.PoiID == p.PoiID)
+                                                    .Include(l => l.User)
+                                                    .Include(l => l.Poi)
+                                                    .ThenInclude(l => l.Images);
 
-            //    foreach (Like l in likes)
-            //    {
+                foreach (Like c in poiLikes)
+                {
+                    likesForUser.Add(c);
+                }
+            }
 
-            //        l.User.UserPois = null;
-            //        userLikes.Add(l);
-            //    }
+            if (likesForUser == null)
+            {
+                return NotFound();
+            }
 
-            //});
-
-
-
-            //if (userLikes == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return Ok(userLikes);
-            return NotFound();
+            return Ok(likesForUser);
         }
 
         // GET: api/Likes/forUserPoi/5
