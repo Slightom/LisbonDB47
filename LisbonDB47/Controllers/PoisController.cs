@@ -24,14 +24,14 @@ namespace LisbonDB47.Controllers
         [HttpGet]
         public IEnumerable<Poi> GetPois()
         {
-            return _context.Pois.Include(p => p.Images).ToList();
+            return _context.Pois.ToList();
         }
 
         // GET: api/Pois/public
         [HttpGet("public")]
         public IEnumerable<Poi> GetPublicPois()
         {
-            return _context.Pois.Include(p => p.Images).Where(p => p.Private == false).ToList();
+            return _context.Pois.Where(p => p.Private == false).Include(p => p.Images).Include(p => p.User).ToList();
         }
 
         // GET: api/Pois/5
@@ -43,7 +43,13 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
-            var poi = await _context.Pois.FindAsync(id);
+            var poi = await _context.Pois.Where(p => p.PoiID == id)
+                                    .Include(p => p.User)
+                                    .Include(p => p.Comments)
+                                    .Include(p => p.Images)
+                                    .Include(p => p.Likes)
+                                    .ThenInclude(l => l.User)
+                                    .FirstAsync();
 
             if (poi == null)
             {
