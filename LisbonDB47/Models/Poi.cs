@@ -8,8 +8,8 @@ namespace LisbonDB47.Models
     public class Poi
     {
         public int PoiID { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string Title { get; set; }   //unsued
+        public string Description { get; set; } //ununsed
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public DateTime DateCreated { get; set; }

@@ -8,11 +8,11 @@ namespace LisbonDB47.Models
     public class PathPoi
     {
         public int PathPoiID { get; set; }
-        public int PoiID { get; set; }
+        public int UserPoiID { get; set; }
         public int PathID { get; set; }
         public DateTime DateCreated { get; set; }
 
-        public Poi Poi { get; set; }
+        public UserPoi UserPoi { get; set; }
         public Path Path { get; set; }
     }
 }

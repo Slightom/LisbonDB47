@@ -8,6 +8,8 @@ namespace LisbonDB47.Models
     public class UserPoi
     {
         public int UserPoiID { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
         public bool Private { get; set; }
         public int PoiID { get; set; }
         public int UserID { get; set; }
