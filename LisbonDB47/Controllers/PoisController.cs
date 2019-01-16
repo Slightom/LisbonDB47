@@ -45,10 +45,11 @@ namespace LisbonDB47.Controllers
 
             var poi = await _context.Pois.Where(p => p.PoiID == id)
                                     .Include(p => p.User)
-                                    .Include(p => p.Comments)
                                     .Include(p => p.Images)
                                     .Include(p => p.Likes)
                                     .ThenInclude(l => l.User)
+                                    .Include(p => p.Comments)
+                                    .ThenInclude(c => c.User)
                                     .FirstAsync();
 
             if (poi == null)
