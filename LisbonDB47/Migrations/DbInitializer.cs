@@ -1389,6 +1389,128 @@ namespace LisbonDB47
                     //int poiID = _context.Pois.Count();
                     //poiID = poiID > 5 ? poiID -= 5 : 1;
                     #endregion
+
+                    #region pathPoi
+                    Path path = new Path
+                    {
+                        DateCreated = DateTime.Now,
+                        UserID = 1,
+                        Title = "Path 1"
+                    };
+                    _context.Paths.Add(path);
+                    _context.SaveChanges();
+
+                    int pathID = _context.Paths.Where(x => x.Title == "Path 1").Select(y => y.PathID).FirstOrDefault();
+                    PathPoi pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 1
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 3
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 5
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 7
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 9
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 10
+                    };
+                    _context.PathPois.Add(pp);
+                    _context.SaveChanges();
+
+
+
+                    path = new Path
+                    {
+                        DateCreated = DateTime.Now,
+                        UserID = 1,
+                        Title = "Path 2"
+                    };
+                    _context.Paths.Add(path);
+                    _context.SaveChanges();
+
+                    pathID = _context.Paths.Where(x => x.Title == "Path 2").Select(y => y.PathID).FirstOrDefault();
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 2
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 4
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 6
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 8
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 11
+                    };
+                    _context.PathPois.Add(pp);
+
+                    pp = new PathPoi
+                    {
+                        DateCreated = DateTime.Now,
+                        PathID = pathID,
+                        PoiID = 12
+                    };
+                    _context.PathPois.Add(pp);
+                    _context.SaveChanges();
+                    #endregion
                 }
             }
         }
