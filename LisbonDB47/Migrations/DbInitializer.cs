@@ -107,6 +107,57 @@ namespace LisbonDB47
                     };
                     _context.Images.Add(image);
 
+                    image = new Image
+                    {
+                        Title = "My 1 2",
+                        Url = "http://www.cm-lisboa.pt/uploads/pics/tt_address/ASC_0800-praca-do-comercio.jpg",
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID
+
+                    };
+                    _context.Images.Add(image);
+
+                    Comment c = new Comment
+                    {
+                        Content = "I love this place !!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Omg, my favorite, greets<3",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "I've been there 3 times and was awesome every time!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "I recommend, 10/10!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
 
                     poi = new Poi
@@ -142,6 +193,47 @@ namespace LisbonDB47
                     };
                     _context.Images.Add(image);
 
+                    c = new Comment
+                    {
+                        Content = "Must see this place when You will be in Lisbon",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Omg, my favorite, greets<3",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "Not so good I expected, 6/10",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Very pretty. 2/10",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
 
                     poi = new Poi
@@ -167,6 +259,47 @@ namespace LisbonDB47
                     };
                     _context.Images.Add(image);
 
+                    c = new Comment
+                    {
+                        Content = "I will be there in next week, I'm so excited!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "The best place in Lisbon",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "Yeaaah, memories <3",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Sooo great place!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
 
                     poi = new Poi
@@ -192,6 +325,47 @@ namespace LisbonDB47
                     };
                     _context.Images.Add(image);
 
+                    c = new Comment
+                    {
+                        Content = "I love this place !!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Omg, my favorite, greets<3",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "I've been there 3 times and was awesome every time!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "I recommend, 10/10!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
 
                     poi = new Poi
@@ -228,7 +402,47 @@ namespace LisbonDB47
                     _context.Images.Add(image);
                     _context.SaveChanges();
 
+                    c = new Comment
+                    {
+                        Content = "It'sgood place",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
 
+                    c = new Comment
+                    {
+                        Content = "Worth to visit",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "Best regards to my family!!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Perfect, I felt in love",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
                     poi = new Poi
                     {
@@ -262,6 +476,48 @@ namespace LisbonDB47
                         PoiID = poiID
                     };
                     _context.Images.Add(image);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "I lost 100EUR there!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Nice, Awesome!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "I've been there 5 times and was awesome every time!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Beautiful!!!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
                     _context.SaveChanges();
 
 
@@ -300,6 +556,47 @@ namespace LisbonDB47
                     _context.Images.Add(image);
                     _context.SaveChanges();
 
+                    c = new Comment
+                    {
+                        Content = "One word: awesome!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "I didnt have time to visit this place and regret so much :(",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "Must have seen, really!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Really good place",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
 
                     poi = new Poi
@@ -336,7 +633,47 @@ namespace LisbonDB47
                     _context.Images.Add(image);
                     _context.SaveChanges();
 
+                    c = new Comment
+                    {
+                        Content = "I love this place !!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
 
+                    c = new Comment
+                    {
+                        Content = "Nice place, worth to visit",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "Sooooo pretty!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Good place!!!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
                     poi = new Poi
                     {
@@ -372,7 +709,47 @@ namespace LisbonDB47
                     _context.Images.Add(image);
                     _context.SaveChanges();
 
+                    c = new Comment
+                    {
+                        Content = "I love this place !!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
 
+                    c = new Comment
+                    {
+                        Content = "Omg, my favorite, greets<3",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "I've been there 3 times and was awesome every time!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "I recommend, 10/10!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
                     poi = new Poi
                     {
@@ -408,6 +785,47 @@ namespace LisbonDB47
                     _context.Images.Add(image);
                     _context.SaveChanges();
 
+                    c = new Comment
+                    {
+                        Content = "I love this place !!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Omg, my favorite, really<3",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "11/10",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "I loveee!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
 
                     poi = new Poi
@@ -444,6 +862,47 @@ namespace LisbonDB47
                     _context.Images.Add(image);
                     _context.SaveChanges();
 
+                    c = new Comment
+                    {
+                        Content = "I love this place !!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Omg, my favorite, greets<3",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "I've been there 3 times and was awesome every time!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "I recommend, 10/10!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
 
 
                     poi = new Poi
@@ -480,21 +939,54 @@ namespace LisbonDB47
                     _context.Images.Add(image);
                     _context.SaveChanges();
 
+                    c = new Comment
+                    {
+                        Content = "I love this place !!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "Omg, my favorite, greets<3",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    c = new Comment
+                    {
+                        Content = "I've been there 3 times and was awesome every time!!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Comments.Add(c);
+
+                    c = new Comment
+                    {
+                        Content = "I recommend, 10/10!",
+                        DateCreated = DateTime.Now,
+                        DateEdited = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Comments.Add(c);
+                    _context.SaveChanges();
+
 
                     //int poiID = _context.Pois.Count();
                     //poiID = poiID > 5 ? poiID -= 5 : 1;
                     #endregion
 
                     #region comments
-                    Comment c = new Comment
-                    {
-                        Content = "I love this place !!",
-                        DateCreated = DateTime.Now,
-                        DateEdited = DateTime.Now,
-                        PoiID = 1,
-                        UserID = 1
-                    };
-                    _context.Comments.Add(c);
 
                     c = new Comment
                     {
