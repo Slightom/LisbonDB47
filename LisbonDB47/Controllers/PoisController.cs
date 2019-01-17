@@ -42,7 +42,9 @@ namespace LisbonDB47.Controllers
                         publicPois.Add(up);
                     }
                 });
+                publicPois = publicPois.OrderByDescending(p => p.DateCreated).ToList();
             }
+
             return publicPois;
         }
 

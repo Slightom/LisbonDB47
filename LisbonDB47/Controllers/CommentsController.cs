@@ -46,7 +46,8 @@ namespace LisbonDB47.Controllers
                 var poiComments = _context.Comments.Where(c => c.PoiID == p.PoiID)
                                                     .Include(l => l.User)
                                                     .Include(l => l.Poi)
-                                                    .ThenInclude(l => l.Images);
+                                                    .ThenInclude(l => l.Images)
+                                                    .OrderByDescending(c=>c.DateCreated);
                                                     
                 foreach (Comment c in poiComments)
                 {
@@ -71,7 +72,7 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
-            var comments = await _context.Comments.Where(c => c.PoiID == poiId).Include(c => c.User).ToListAsync();
+            var comments = await _context.Comments.Where(c => c.PoiID == poiId).Include(c => c.User).OrderByDescending(c => c.DateCreated).ToListAsync();
 
             if (comments == null)
             {
