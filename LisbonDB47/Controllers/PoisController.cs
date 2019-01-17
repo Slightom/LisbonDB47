@@ -31,10 +31,10 @@ namespace LisbonDB47.Controllers
         [HttpGet("public/{userId}")]
         public IEnumerable<Poi> GetPublicPois([FromRoute] int userId)
         {
-            var publicPois = _context.Pois.Where(p => p.Private == false).Include(p => p.Images).Include(p => p.User).ToList();
+            var publicPois = _context.Pois.Where(p => p.Private == false).Include(p => p.Images).Include(p => p.User).OrderByDescending(p => p.DateCreated).ToList();
             if ( userId != 0)
             {
-                var userPois = _context.Pois.Where(p => p.UserID == userId).Include(p => p.Images).Include(p => p.User).ToList();
+                var userPois = _context.Pois.Where(p => p.UserID == userId).Include(p => p.Images).Include(p => p.User).OrderByDescending(p => p.DateCreated).ToList();
                 userPois.ForEach(up =>
                 {
                     if (!publicPois.Contains(up))

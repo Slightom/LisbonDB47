@@ -12,6 +12,7 @@ namespace LisbonDB47.Models
         public string Password { get; set; }
         public string Mail { get; set; }
         public bool Active { get; set; }
+        public DateTime DateCreated { get; set; }
 
         public ICollection<Poi> Pois { get; set; }
         public ICollection<Path> Paths { get; set; }
