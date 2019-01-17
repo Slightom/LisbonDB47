@@ -23,7 +23,8 @@ namespace LisbonDB47
                     Name = "Admin Tomek",
                     Mail = "admin.tomek@gmail.com",
                     Password = SecurePasswordHasher.Hash("admintomek"),
-                    Active = true
+                    Active = true,
+                    DateCreated = DateTime.Now
                 };
                 _context.Users.Add(admin);
                 _context.SaveChanges();
@@ -34,7 +35,8 @@ namespace LisbonDB47
                     Name = "User 2",
                     Mail = "user.2@gmail.com",
                     Password = SecurePasswordHasher.Hash("user2"),
-                    Active = true
+                    Active = true,
+                    DateCreated = DateTime.Now
                 };
                 _context.Users.Add(admin);
                 _context.SaveChanges(); //2
@@ -44,7 +46,8 @@ namespace LisbonDB47
                     Name = "Alicja Delicja",
                     Mail = "alicja.delicja@gmail.com",
                     Password = SecurePasswordHasher.Hash("alicjadelicja"),
-                    Active = true
+                    Active = true,
+                    DateCreated = DateTime.Now
                 };
                 _context.Users.Add(admin);
                 _context.SaveChanges(); //3
@@ -54,7 +57,8 @@ namespace LisbonDB47
                     Name = "Pedro Silva",
                     Mail = "pedro.silva2@gmail.com",
                     Password = SecurePasswordHasher.Hash("pedrosilva"),
-                    Active = true
+                    Active = true,
+                    DateCreated = DateTime.Now
                 };
                 _context.Users.Add(admin);
                 _context.SaveChanges(); //4
@@ -64,7 +68,8 @@ namespace LisbonDB47
                     Name = "Luis Figo",
                     Mail = "luis.figo@gmail.com",
                     Password = SecurePasswordHasher.Hash("luisfigo"),
-                    Active = true
+                    Active = true,
+                    DateCreated = DateTime.Now
                 };
                 _context.Users.Add(admin);
                 _context.SaveChanges(); //5
@@ -74,7 +79,8 @@ namespace LisbonDB47
                     Name = "Grzegorz Brzęczyszczykiewicz",
                     Mail = "grzegorz.brzeczyszczykiewicz2@gmail.com",
                     Password = SecurePasswordHasher.Hash("grzegorzbrzeczyszczykiewicz"),
-                    Active = true
+                    Active = true,
+                    DateCreated = DateTime.Now
                 };
                 _context.Users.Add(admin);
                 _context.SaveChanges(); //6
