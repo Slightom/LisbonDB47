@@ -180,7 +180,6 @@ namespace LisbonDB47
                         UserID = 2
                     };
                     _context.Likes.Add(l);
-                    _context.SaveChanges();
 
                     l = new Like
                     {
@@ -207,7 +206,7 @@ namespace LisbonDB47
                         Latitude = 38.7139092,
                         Longitude = -9.1334762,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 2,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi); //2
@@ -290,7 +289,6 @@ namespace LisbonDB47
                         UserID = 2
                     };
                     _context.Likes.Add(l);
-                    _context.SaveChanges();
 
                     l = new Like
                     {
@@ -323,7 +321,7 @@ namespace LisbonDB47
                         Latitude = 38.6904756,
                         Longitude = -9.1773516,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 3,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi); //3
@@ -410,7 +408,7 @@ namespace LisbonDB47
                         Latitude = 38.6916389,
                         Longitude = -9.2158002,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 4,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi); //4
@@ -514,7 +512,7 @@ namespace LisbonDB47
                         Latitude = 38.697060,
                         Longitude = -9.422222,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 5,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi);
@@ -583,7 +581,6 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
-                    _context.Likes.Add(l);
 
                     l = new Like
                     {
@@ -624,7 +621,7 @@ namespace LisbonDB47
                         Latitude = 38.773436,
                         Longitude = -9.091420,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 6,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi);
@@ -847,7 +844,7 @@ namespace LisbonDB47
                         Latitude = 38.719181,
                         Longitude = -9.132832,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 2,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi);
@@ -963,7 +960,7 @@ namespace LisbonDB47
                         Latitude = 38.712127,
                         Longitude = -9.139425,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 3,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi);
@@ -1055,7 +1052,7 @@ namespace LisbonDB47
                         Latitude = 38.716272,
                         Longitude = -9.131524,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 4,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi);
@@ -1172,7 +1169,7 @@ namespace LisbonDB47
                         Latitude = 38.712139,
                         Longitude = -9.140244,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 5,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi);
@@ -1287,7 +1284,7 @@ namespace LisbonDB47
                         Latitude = 38.710614,
                         Longitude = -9.142101,
                         Private = false,
-                        UserID = adminID,
+                        UserID = 6,
                         DateCreated = DateTime.Now
                     };
                     _context.Pois.Add(poi);
@@ -1371,7 +1368,6 @@ namespace LisbonDB47
                         UserID = 2
                     };
                     _context.Likes.Add(l);
-                    _context.SaveChanges();
 
                     l = new Like
                     {
