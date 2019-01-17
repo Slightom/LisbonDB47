@@ -992,20 +992,6 @@ namespace LisbonDB47
                     //poiID = poiID > 5 ? poiID -= 5 : 1;
                     #endregion
 
-                    #region comments
-
-                    c = new Comment
-                    {
-                        Content = "Omg, my favorite, greets<3",
-                        DateCreated = DateTime.Now,
-                        DateEdited = DateTime.Now,
-                        PoiID = 1,
-                        UserID = 2
-                    };
-                    _context.Comments.Add(c);
-                    _context.SaveChanges();
-                    #endregion
-
                     #region likes
                     Like l = new Like
                     {
