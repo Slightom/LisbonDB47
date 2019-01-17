@@ -226,7 +226,7 @@ namespace LisbonDB47
                     image = new Image
                     {
                         Title = "My 3",
-                        Url = "https://www.bem-vindo-a-lisboa.com.br/wp-content/uploads/2017/07/tour-lisboa-belem-ponte-25-de-abril-e-cristo-rei-o-que-esperar-lisboa.jpg",
+                        Url = "https://i2.wp.com/ruralea.com/wp-content/uploads/2015/09/8056850756_e71785c22f_k-1-e1441153605235.jpg?fit=900%2C506",
                         DateCreated = DateTime.Now,
                         PoiID = poiID
                     };
