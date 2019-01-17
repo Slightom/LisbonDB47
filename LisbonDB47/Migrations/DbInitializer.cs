@@ -325,7 +325,7 @@ namespace LisbonDB47
                     image = new Image
                     {
                         Title = "My Abril",
-                        Url = "https://upload.wikimedia.org/wikipedia/commons/f/fc/25th_April_Bridge_and_boat.JPG",
+                        Url = "https://www.viajaremfamilia.com/wp-content/uploads/2016/12/torre-de-Bel%C3%A9m.jpg",
                         DateCreated = DateTime.Now,
                         PoiID = poiID
                     };
@@ -694,7 +694,7 @@ namespace LisbonDB47
                     _context.Pois.Add(poi);
                     _context.SaveChanges(); //9
 
-                    poiID = _context.Pois.Where(x => x.Title == "Miradouro da Nossa Senhora do Monte").Select(y => y.PoiID).FirstOrDefault();
+                    poiID = _context.Pois.Where(x => x.Title == "Santa Justa Lift").Select(y => y.PoiID).FirstOrDefault();
                     image = new Image
                     {
                         Title = "My 9 ",
@@ -770,7 +770,7 @@ namespace LisbonDB47
                     _context.Pois.Add(poi);
                     _context.SaveChanges(); //10
 
-                    poiID = _context.Pois.Where(x => x.Title == "Miradouro da Nossa Senhora do Monte").Select(y => y.PoiID).FirstOrDefault();
+                    poiID = _context.Pois.Where(x => x.Title == "Miradouro Sophia de Mello Breyner Andresen").Select(y => y.PoiID).FirstOrDefault();
                     image = new Image
                     {
                         Title = "My 10 ",
