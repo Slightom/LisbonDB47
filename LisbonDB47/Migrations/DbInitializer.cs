@@ -17,7 +17,7 @@ namespace LisbonDB47
 
             if (_context.Users.Count() == 0)
             {
-                #region users 
+                #region users
                 User admin = new User
                 {
                     Name = "Admin Tomek",
@@ -88,7 +88,7 @@ namespace LisbonDB47
                
                 if (_context.Pois.Count() == 0)
                 {
-                    #region pois and images
+                    #region pois, images, comments, likes
                     Poi poi = new Poi
                     {
                         Title = "Praça do Comércio",
@@ -163,6 +163,40 @@ namespace LisbonDB47
                         UserID = 4
                     };
                     _context.Comments.Add(c);
+                    _context.SaveChanges();
+
+                    Like l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Likes.Add(l);
                     _context.SaveChanges();
 
 
@@ -241,6 +275,46 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
+
+
+
 
                     poi = new Poi
                     {
@@ -307,6 +381,27 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
+
 
                     poi = new Poi
                     {
@@ -372,6 +467,44 @@ namespace LisbonDB47
                     };
                     _context.Comments.Add(c);
                     _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
 
 
                     poi = new Poi
@@ -450,6 +583,40 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
+
+
+
                     poi = new Poi
                     {
                         Title = "Telecabine Lisbon - North Station",
@@ -525,6 +692,45 @@ namespace LisbonDB47
                     };
                     _context.Comments.Add(c);
                     _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
+
 
 
 
@@ -604,6 +810,35 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
 
                     poi = new Poi
                     {
@@ -681,6 +916,46 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
+
+
+
                     poi = new Poi
                     {
                         Title = "Santa Justa Lift",
@@ -757,6 +1032,22 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
+
+
+
+
                     poi = new Poi
                     {
                         Title = "Miradouro Sophia de Mello Breyner Andresen",
@@ -832,6 +1123,46 @@ namespace LisbonDB47
                     };
                     _context.Comments.Add(c);
                     _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
+
+
 
 
                     poi = new Poi
@@ -910,6 +1241,44 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 1
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 2
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 3
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+
+
+
+
 
                     poi = new Poi
                     {
@@ -987,30 +1356,10 @@ namespace LisbonDB47
                     _context.Comments.Add(c);
                     _context.SaveChanges();
 
-
-                    //int poiID = _context.Pois.Count();
-                    //poiID = poiID > 5 ? poiID -= 5 : 1;
-                    #endregion
-
-                    #region comments
-
-                    c = new Comment
-                    {
-                        Content = "Omg, my favorite, greets<3",
-                        DateCreated = DateTime.Now,
-                        DateEdited = DateTime.Now,
-                        PoiID = 1,
-                        UserID = 2
-                    };
-                    _context.Comments.Add(c);
-                    _context.SaveChanges();
-                    #endregion
-
-                    #region likes
-                    Like l = new Like
+                    l = new Like
                     {
                         DateCreated = DateTime.Now,
-                        PoiID = 1,
+                        PoiID = poiID,
                         UserID = 1
                     };
                     _context.Likes.Add(l);
@@ -1018,11 +1367,31 @@ namespace LisbonDB47
                     l = new Like
                     {
                         DateCreated = DateTime.Now,
-                        PoiID = 1,
+                        PoiID = poiID,
                         UserID = 2
                     };
                     _context.Likes.Add(l);
                     _context.SaveChanges();
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 4
+                    };
+                    _context.Likes.Add(l);
+
+                    l = new Like
+                    {
+                        DateCreated = DateTime.Now,
+                        PoiID = poiID,
+                        UserID = 5
+                    };
+                    _context.Likes.Add(l);
+                    _context.SaveChanges();
+
+                    //int poiID = _context.Pois.Count();
+                    //poiID = poiID > 5 ? poiID -= 5 : 1;
                     #endregion
                 }
             }
