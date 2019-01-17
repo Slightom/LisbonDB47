@@ -28,10 +28,22 @@ namespace LisbonDB47.Controllers
         }
 
         // GET: api/Pois/public
-        [HttpGet("public")]
-        public IEnumerable<Poi> GetPublicPois()
+        [HttpGet("public/{userId}")]
+        public IEnumerable<Poi> GetPublicPois([FromRoute] int userId)
         {
-            return _context.Pois.Where(p => p.Private == false).Include(p => p.Images).Include(p => p.User).ToList();
+            var publicPois = _context.Pois.Where(p => p.Private == false).Include(p => p.Images).Include(p => p.User).ToList();
+            if ( userId != 0)
+            {
+                var userPois = _context.Pois.Where(p => p.UserID == userId).Include(p => p.Images).Include(p => p.User).ToList();
+                userPois.ForEach(up =>
+                {
+                    if (!publicPois.Contains(up))
+                    {
+                        publicPois.Add(up);
+                    }
+                });
+            }
+            return publicPois;
         }
 
         // GET: api/Pois/5
