@@ -53,7 +53,7 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.Where(u=>u.UserID==id).Include(u => u.Pois).FirstAsync();
+            var user = await _context.Users.Where(u=>u.UserID==id).Include(u => u.Pois).ThenInclude(p=>p.Images).FirstAsync();
 
             if (user == null)
             {
