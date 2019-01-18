@@ -39,7 +39,11 @@ namespace LisbonDB47.Controllers
 
             if (foundedUser != null)
             {
-                ok = SecurePasswordHasher.Verify(user.Password, foundedUser.Password);
+                ok = user.Password == foundedUser.Password;
+                if (ok == false)
+                {
+                    ok = SecurePasswordHasher.Verify(user.Password, foundedUser.Password);
+                }
                 foundedUser.Password = null;
                 // if user is not active also set to false
             }
@@ -66,6 +70,32 @@ namespace LisbonDB47.Controllers
             User foundedUser = await _context.Users.FindAsync(user.UserID);
             if (foundedUser != null && foundedUser.Mail == user.Mail)
             {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
+        [HttpPost("change/{newPassword}")]
+        public async Task<IActionResult> Change([FromBody] User user, [FromRoute] String newPassword)
+        {
+            if (user == null || user.UserID == 0 || user.Password == null || user.Password == "" || newPassword == null || newPassword == "")
+            {
+                return NotFound();
+            }
+
+            User foundedUser = await _context.Users.FindAsync(user.UserID);
+            var ok = SecurePasswordHasher.Verify(user.Password, foundedUser.Password);
+            if (foundedUser != null && ok)
+            {
+                foundedUser.Password = SecurePasswordHasher.Hash(newPassword);
+                _context.Users.Update(foundedUser);
+                _context.SaveChanges();
+                // set new password
+
                 return Ok();
             }
             else
