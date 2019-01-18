@@ -36,7 +36,7 @@ namespace LisbonDB47.Controllers
                 return BadRequest(ModelState);
             }
 
-            var path = await _context.Paths.FindAsync(id);
+            var path = await _context.Paths.Where(p => p.PathID == id).Include(p => p.PathPois).ThenInclude(pp => pp.Poi).ThenInclude(p => p.Images).FirstAsync();
 
             if (path == null)
             {
@@ -44,6 +44,25 @@ namespace LisbonDB47.Controllers
             }
 
             return Ok(path);
+        }
+
+        // GET: api/Paths/forUser/5
+        [HttpGet("forUser/{userId}")]
+        public async Task<IActionResult> GetUserPaths([FromRoute] int userId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var paths = await _context.Paths.Where(p => p.UserID == userId).Include(p => p.PathPois).ThenInclude(p => p.Poi).ToListAsync();
+
+            if (paths == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(paths);
         }
 
         // PUT: api/Paths/5
