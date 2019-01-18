@@ -41,7 +41,7 @@ namespace LisbonDB47.Controllers
             //    }
                
             //}
-            return _context.Users;
+            return _context.Users.Include(u => u.Pois).ThenInclude(p=>p.Images);
         }
 
         // GET: api/Users/5

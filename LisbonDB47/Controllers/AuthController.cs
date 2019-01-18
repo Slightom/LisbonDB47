@@ -50,6 +50,10 @@ namespace LisbonDB47.Controllers
 
             if (ok)
             {
+                if(foundedUser.Active == false)
+                {
+                    return Unauthorized();
+                }
                 return Ok(foundedUser);
             }
             else

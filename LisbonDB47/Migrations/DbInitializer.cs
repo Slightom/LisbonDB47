@@ -34,7 +34,7 @@ namespace LisbonDB47
                 {
                     Name = "User 2",
                     Mail = "user.2@gmail.com",
-                    Password = SecurePasswordHasher.Hash("user2"),
+                    Password = SecurePasswordHasher.Hash("user.2"),
                     Active = true,
                     DateCreated = DateTime.Now
                 };
